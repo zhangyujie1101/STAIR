@@ -1,5 +1,3 @@
-
-
 from typing import List, Callable
 
 import math
@@ -9,11 +7,16 @@ from torch.optim.optimizer import Optimizer
 
 
 class AdamSEvo(Optimizer):
+    """
+        AdamSEvo优化器 - 结构感知的Adam优化器，支持反向逐步卷积(BSC)
+        STAIR论文的核心创新之一，在梯度更新时应用多模态相似性约束
+        """
 
     def __init__(
         self, params,
         lr=1e-3, betas=(0.9, 0.999), eps=1e-8, weight_decay=0,
     ):
+        # 参数验证
         if not 0.0 <= lr:
             raise ValueError("Invalid learning rate: {}".format(lr))
         if not 0.0 <= eps:
@@ -25,6 +28,7 @@ class AdamSEvo(Optimizer):
         if not 0.0 <= weight_decay:
             raise ValueError("Invalid weight_decay value: {}".format(weight_decay))
 
+        # 设置默认参数，继承标准Adam的参数
         defaults = dict(lr=lr, betas=betas, eps=eps,
                         weight_decay=weight_decay, amsgrad=False,
                         maximize=False, foreach=None, capturable=False,
@@ -33,7 +37,9 @@ class AdamSEvo(Optimizer):
 
 
     def __setstate__(self, state):
+        """设置优化器状态，确保兼容性"""
         super().__setstate__(state)
+        # 为参数组设置默认值
         for group in self.param_groups:
             group.setdefault('amsgrad', False)
             group.setdefault('maximize', False)
