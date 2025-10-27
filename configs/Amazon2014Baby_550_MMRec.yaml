@@ -10,7 +10,7 @@ optimizer: adamwsevo
 lr: 1.e-3
 weight_decay: 0.3
 
-gamma: 0.01
+gamma: 0.5
 mfiles: textual_modality.pkl,visual_modality.pkl
 num_neighbors: '5-1'
 

@@ -19,7 +19,7 @@ STAIR模型的PyTorch实现："STAIR: 电子商务推荐中协同与多模态信
     cd STAIR
     python main.py --config configs/Amazon2014Baby_550_MMRec.yaml
 
-## 复现结果
+## 复现
 
 ### 数据集介绍
 
@@ -142,6 +142,12 @@ which4best: NDCG@20</pre>
 
 ![3_Table2_Electroonics](./复现结果/3_Table2_Electroonics.png)
 
-### 与论文结果对比
+### 与论文的表2结果对比
 
 ![整体性能](./复现结果/整体性能.png)
+
+### 参数实验
+
+修改<code>Amazon2014Baby_550_MMRec.yaml</code>中的<code>gamma</code>，分别设置成<code>{0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5}</code>并运行。
+
+**复现结果**
