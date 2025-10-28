@@ -148,6 +148,14 @@ which4best: NDCG@20</pre>
 
 ### 参数实验
 
-修改<code>Amazon2014Baby_550_MMRec.yaml</code>中的<code>gamma</code>，分别设置成<code>{0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5}</code>并运行。
+在Baby数据集上进行，修改<code>Amazon2014Baby_550_MMRec.yaml</code>中的<code>gamma</code>，分别设置成<code>{0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5}</code>并运行。
 
 **复现结果**
+
+![参数实验](./复现结果/参数实验.png)
+
+![γ折线图](./复现结果/γ折线图.png)
+
+**论文**
+
+![γ折线图](./复现结果/γ折线图-论文.png)
